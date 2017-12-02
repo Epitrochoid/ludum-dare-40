@@ -3,7 +3,7 @@
 [ext_resource path="res://ColorRect.gd" type="Script" id=1]
 [ext_resource path="res://assets/laptop_colored.png" type="Texture" id=2]
 [ext_resource path="res://LineEdit.gd" type="Script" id=3]
-[ext_resource path="res://assets/phone_with_hand_color.png" type="Texture" id=4]
+[ext_resource path="res://assets/phone_with_interface.png" type="Texture" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
