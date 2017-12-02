@@ -14,6 +14,11 @@ config/name="ludum-dare-40"
 run/main_scene="res://Container.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [gdnative]
 
 singletons=[  ]
