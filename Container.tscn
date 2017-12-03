@@ -148,19 +148,23 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 50.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/separation = 50
 alignment = 0
 
-[node name="Tasks" type="Control" parent="ColorRect/Phone/ScrollContainer/VBoxContainer"]
+[node name="Container" type="Container" parent="ColorRect/Phone/ScrollContainer/VBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
