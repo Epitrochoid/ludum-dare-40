@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ColorRect.gd" type="Script" id=1]
 [ext_resource path="res://assets/laptop_colored.png" type="Texture" id=2]
 [ext_resource path="res://TerminalLine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/phone_with_interface.png" type="Texture" id=4]
-[ext_resource path="res://Button.gd" type="Script" id=5]
-[ext_resource path="res://ExitButton.gd" type="Script" id=6]
-[ext_resource path="res://assets/Ludum.wav" type="AudioStream" id=7]
+[ext_resource path="res://Tasks.gd" type="Script" id=5]
+[ext_resource path="res://Button.gd" type="Script" id=6]
+[ext_resource path="res://ExitButton.gd" type="Script" id=7]
+[ext_resource path="res://assets/Ludum.ogg" type="AudioStream" id=8]
 
 [sub_resource type="GDScript" id=1]
 
@@ -125,6 +126,55 @@ z = 2
 z_as_relative = false
 texture = ExtResource( 4 )
 
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Phone"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = -105.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scroll_horizontal = true
+scroll_vertical = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Phone/ScrollContainer"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_right = 106.0
+margin_bottom = 124.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Tasks" type="Control" parent="ColorRect/Phone/ScrollContainer/VBoxContainer"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_right = 105.0
+margin_bottom = 125.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 5 )
+
 [node name="Button" type="Button" parent="ColorRect"]
 
 anchor_left = 0.0
@@ -145,12 +195,12 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 flat = false
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="ColorRect"]
 
 playback_process_mode = 1
-playback/active = true
+playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
@@ -176,11 +226,11 @@ shortcut = null
 group = null
 text = "X"
 flat = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0

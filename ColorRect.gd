@@ -45,3 +45,9 @@ func on_state_change (state):
 # soon as this view is ready
 func _ready ():
   store.subscribe(self, "on_state_change")
+
+  var addTaskTimer = Timer.new()
+  addTaskTimer.set_wait_time(45)
+  addTaskTimer.connect("timeout", self, "_on_add_task_timeout")
+  add_child(addTaskTimer)
+  addTaskTimer.start()
