@@ -31,3 +31,4 @@ func _ready ():
   addTaskTimer.connect("timeout", self, "_on_add_task_timeout")
   add_child(addTaskTimer)
   addTaskTimer.start()
+  button.connect("pressed", self, "on_button_press")
