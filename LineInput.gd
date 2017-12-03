@@ -1,25 +1,19 @@
 extends LineEdit
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var scrollable_terminal = null
+var vbox_container = null
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	grab_focus()
+	self.grab_focus()
 	self.connect("text_entered", self, "_on_enter_pressed")
-	pass
+
+	vbox_container = self.get_parent().get_parent()
+	scrollable_terminal = vbox_container.get_parent()
+	scrollable_terminal.set_v_scroll(1000000)
 
 func _on_enter_pressed(someText):
-	print('input received! ', someText)
-	var terminal_node = self.get_parent().get_parent()
 	var new_terminal_line = load("res://TerminalLine.tscn").instance()
-	terminal_node.add_child(new_terminal_line)
+	vbox_container.add_child(new_terminal_line)
+	yield(get_tree(), 'idle_frame')
+	scrollable_terminal.set_v_scroll(1000000)
 
-
-func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-#	append_at_cursor('hello world')
-	pass
