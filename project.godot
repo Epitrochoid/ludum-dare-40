@@ -14,6 +14,10 @@ config/name="ludum-dare-40"
 run/main_scene="res://Container.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+main="*res://main.gd"
+
 [display]
 
 window/size/width=1280

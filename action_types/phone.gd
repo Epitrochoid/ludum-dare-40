@@ -1,0 +1,3 @@
+var OPEN = "OPEN_PHONE"
+var CLOSE = "CLOSE_PHONE"
+
