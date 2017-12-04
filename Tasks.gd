@@ -3,6 +3,31 @@ extends Container
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+onready var store = get_node("/root/main").get_store()
+onready var game_actions = preload("res://actions/game.gd").new()
+onready var dict_util = preload("res://util/dict_util.gd").new()
+onready var task_id = 0
+
+var task_pool = [
+  {
+    "name": "cowsay for days",
+    "steps": [
+      {
+        "description": "Type \"cowsay hi\"",
+        "condition": "cowsay hi"
+      }
+    ]
+  },
+  {
+    "name": "cat for days",
+    "steps": [
+      {
+        "description": "Type \"cat fix.txt\"",
+        "condition": "cat fix.txt"
+      }
+    ]
+  }
+]
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -20,7 +45,8 @@ func _ready():
 #	pass
 #
 func _on_add_task_timeout():
-  var test_label = Label.new()
-  test_label.set_text("Test")
-  get_parent().add_child(test_label)
-  print("Timeout hit")
+  var task_pos = randi() % 2
+  var task = dict_util.shallow_copy(task_pool[task_pos])
+  task.id = task_id + 1
+
+  store.dispatch(game_actions.add_task(task))

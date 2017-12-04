@@ -2,6 +2,9 @@ extends LineEdit
 
 var scrollable_terminal = null
 var vbox_container = null
+onready var store = get_node("/root/main").get_store()
+
+var current_task
 
 func _ready():
 	self.grab_focus()
