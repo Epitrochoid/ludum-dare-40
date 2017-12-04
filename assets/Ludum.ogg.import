@@ -1,0 +1,14 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ludum.ogg-958c7c7bfc252f821d6746f4cec41def.oggstr"
+
+[deps]
+
+source_md5="76f2fccb939092f8ad51ef74f5546178"
+
+[params]
+
+loop=true
+loop_offset=0
