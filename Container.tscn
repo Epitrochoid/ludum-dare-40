@@ -25,8 +25,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -1.0
-margin_right = 1279.0
+margin_right = 1280.0
 margin_bottom = 720.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -111,6 +110,7 @@ script = ExtResource( 3 )
 
 [node name="Phone" type="Sprite" parent="ColorRect"]
 
+editor/display_folded = true
 position = Vector2( 145, 410 )
 scale = Vector2( 2.1, 2.1 )
 z = 2
@@ -213,6 +213,47 @@ text = "X"
 flat = true
 script = ExtResource( 6 )
 
+[node name="ScoreCount" type="Label" parent="ColorRect"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 700.0
+margin_top = 29.0
+margin_right = 740.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Score" type="Label" parent="ColorRect"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 649.0
+margin_top = 31.0
+margin_right = 689.0
+margin_bottom = 45.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 stream = ExtResource( 7 )
@@ -220,22 +261,5 @@ volume_db = 0.0
 autoplay = true
 mix_target = 0
 bus = "Master"
-
-[node name="Label" type="Label" parent="."]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 

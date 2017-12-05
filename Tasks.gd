@@ -8,6 +8,8 @@ onready var game_actions = preload("res://actions/game.gd").new()
 onready var dict_util = preload("res://util/dict_util.gd").new()
 onready var task_id = 0
 
+onready var addTaskTimer = Timer.new()
+
 var task_pool = [
   {
     "name": "cowsay for days",
@@ -32,8 +34,7 @@ var task_pool = [
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-    var addTaskTimer = Timer.new()
-    addTaskTimer.set_wait_time(1)
+    addTaskTimer.set_wait_time(5)
     addTaskTimer.connect("timeout", self, "_on_add_task_timeout")
     addTaskTimer.set_one_shot(false)
     add_child(addTaskTimer)
@@ -47,6 +48,8 @@ func _ready():
 func _on_add_task_timeout():
   var task_pos = randi() % 2
   var task = dict_util.shallow_copy(task_pool[task_pos])
-  task.id = task_id + 1
+  task.steps = [] + task.steps
+  task_id = task_id + 1
+  task.id = task_id
 
   store.dispatch(game_actions.add_task(task))
